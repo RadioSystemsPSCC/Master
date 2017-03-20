@@ -79,6 +79,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Viewmodels\Commands\ViewCommand.cs" />
+    <Compile Include="Views\Installation6.xaml.cs">
+      <DependentUpon>Installation6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Signature7.xaml.cs">
+      <DependentUpon>Signature7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Solutions5.xaml.cs">
+      <DependentUpon>Solutions5.xaml</DependentUpon>
+    </Compile>
     <Page Include="ThemedWindowStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +113,45 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="ThemedWindow.cs" />
+    <Compile Include="ThemedWindowConverters.cs" />
+    <Compile Include="Viewmodels\BindableBase.cs" />
+    <Compile Include="Viewmodels\Commands\MyICommand.cs" />
+    <Compile Include="Viewmodels\Commands\RelayCommand.cs" />
+    <Compile Include="Viewmodels\Contact1ViewModel.cs" />
+    <Compile Include="Viewmodels\Freedom4ViewModel.cs" />
+    <Compile Include="Viewmodels\Installation6ViewModel.cs" />
+    <Compile Include="Viewmodels\MainWindowViewModel.cs" />
+    <Compile Include="Viewmodels\Protection3ViewModel.cs" />
+    <Compile Include="Viewmodels\Safety2ViewModel.cs" />
+    <Compile Include="Viewmodels\Signature7ViewModel.cs" />
+    <Compile Include="Viewmodels\Solutions5ViewModel.cs" />
+    <Compile Include="Views\Contact1.xaml.cs">
+      <DependentUpon>Contact1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Freedom4.xaml.cs">
+      <DependentUpon>Freedom4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Protection3.xaml.cs">
+      <DependentUpon>Protection3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Safety2.xaml.cs">
+      <DependentUpon>Safety2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Page Include="Views\Signature7.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,50 +160,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="NativeMethods.cs" />
-    <Compile Include="ThemedWindow.cs" />
-    <Compile Include="ThemedWindowConverters.cs" />
-    <Compile Include="Viewmodels\Contact1ViewModel.cs" />
-    <Compile Include="Viewmodels\Freedom4ViewModel.cs" />
-    <Compile Include="Viewmodels\Installation6ViewModel.cs" />
-    <Compile Include="Viewmodels\Protection3ViewModel.cs" />
-    <Compile Include="Viewmodels\Safety2ViewModel.cs" />
-    <Compile Include="Viewmodels\Signature7ViewModel.cs" />
-    <Compile Include="Viewmodels\Solutions5ViewModel.cs" />
-    <Compile Include="Viewmodels\WindowViewModel.cs" />
-    <Compile Include="Views\Contact1.xaml.cs">
-      <DependentUpon>Contact1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Freedom4.xaml.cs">
-      <DependentUpon>Freedom4.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Installation6.xaml.cs">
-      <DependentUpon>Installation6.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Protection3.xaml.cs">
-      <DependentUpon>Protection3.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Safety2.xaml.cs">
-      <DependentUpon>Safety2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Signature7.xaml.cs">
-      <DependentUpon>Signature7.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Solutions5.xaml.cs">
-      <DependentUpon>Solutions5.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -185,14 +190,14 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\" />
-    <Folder Include="Models\" />
     <Folder Include="Scrips\" />
-    <Folder Include="Viewmodels\Commands\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logo.jpg" />
