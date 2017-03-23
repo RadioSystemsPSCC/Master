@@ -79,6 +79,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\BindableBase.cs" />
+    <Compile Include="Models\Pet.cs" />
     <Compile Include="Viewmodels\Commands\ViewCommand.cs" />
     <Compile Include="Views\Installation6.xaml.cs">
       <DependentUpon>Installation6.xaml</DependentUpon>
@@ -213,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\blueshouse2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close-button2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
