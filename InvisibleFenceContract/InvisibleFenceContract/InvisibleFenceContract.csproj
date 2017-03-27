@@ -50,6 +50,10 @@
       <HintPath>..\packages\PDFsharp-MigraDoc-WPF.1.32.2608.0\lib\net20\MigraDoc.RtfRendering-WPF.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PdfSharp-WPF, Version=1.32.2608.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp-MigraDoc-WPF.1.32.2608.0\lib\net20\PdfSharp-WPF.dll</HintPath>
       <Private>True</Private>
@@ -82,14 +86,26 @@
     <Compile Include="Models\BindableBase.cs" />
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Viewmodels\Commands\ViewCommand.cs" />
+    <Compile Include="Viewmodels\ProductLookupViewModel.cs" />
+    <Compile Include="Viewmodels\SelectCustomerViewModel.cs" />
+    <Compile Include="Viewmodels\StartViewModel.cs" />
     <Compile Include="Views\Installation6.xaml.cs">
       <DependentUpon>Installation6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductLookup.xaml.cs">
+      <DependentUpon>ProductLookup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectCustomer.xaml.cs">
+      <DependentUpon>SelectCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Signature7.xaml.cs">
       <DependentUpon>Signature7.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Solutions5.xaml.cs">
       <DependentUpon>Solutions5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Start.xaml.cs">
+      <DependentUpon>Start.xaml</DependentUpon>
     </Compile>
     <Page Include="ThemedWindowStyle.xaml">
       <SubType>Designer</SubType>
@@ -104,6 +120,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Installation6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductLookup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,11 +174,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\SelectCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Signature7.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Solutions5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Start.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +209,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Resources\JSON_oneObject_Correct.JSON" />
+    <None Include="Resources\Pet.json" />
+    <None Include="Resources\Products.json" />
     <Resource Include="Fonts\gothambold.ttf" />
     <Resource Include="Fonts\gothambook.otf" />
     <Resource Include="Fonts\gothammedium.otf" />
