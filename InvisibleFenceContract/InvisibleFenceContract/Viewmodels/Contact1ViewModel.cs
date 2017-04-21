@@ -14,11 +14,13 @@ namespace InvisibleFenceContract.Viewmodels
 {
     class Contact1ViewModel : BindableBase
     {
+        public int CusID = Convert.ToInt32(Application.Current.Properties["Cus_ID"]);
         public Contact1ViewModel()
         {
-            string currentCustomerID = this.CusID;
+            
             LoadClients();
             LoadPets();
+            pickPet();
         }
         public List<Customer> c_Clients
         {
@@ -30,19 +32,24 @@ namespace InvisibleFenceContract.Viewmodels
             get;
             set;
         }
-        public string CustomerID
+        public List<Pet> sel_Pets
+        {
+            get;
+            set;
+        }
+        public int CustomerID
         {
             get
             {
                 for (int i = 0; i < c_Clients.Count; i++)
                 {
-                    if ((c_Clients[i].CustomerID == CusID) && (CusID != null))
+                    if ((c_Clients[i].CustomerID == CusID) && (CusID != 0))
                     {
                         return c_Clients[i].CustomerID;
                     }
                 }
-                MessageBox.Show("Customer not found");
-                return null;
+
+                return -1;
             }
             set
             {
@@ -240,13 +247,27 @@ namespace InvisibleFenceContract.Viewmodels
             }
         }
 
+        public void pickPet()
+        {
+            List<Pet> pick_Pet = new List<Pet>();
+            foreach (Pet item in sel_Pets)
+            {
+                if (item.CustomerID == CustomerID)
+                {
+
+                    pick_Pet.Add(item);
+                }
+            }
+            c_Pets = pick_Pet;
+        }
+
         public void LoadPets()
         {
 
             string text = System.IO.File.ReadAllText(@"../../Resources/Pet.json");
 
             List<Pet> cc_Pets = JsonConvert.DeserializeObject<List<Pet>>(text);
-            c_Pets = cc_Pets;
+            sel_Pets = cc_Pets;
         }
 
         public void LoadClients()
