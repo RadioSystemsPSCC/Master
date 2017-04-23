@@ -14,8 +14,8 @@ namespace InvisibleFenceContract.Viewmodels
         public MainWindowViewModel()
         {
             NavCommand = new MyICommand<string>(OnNav);
-            LoadProduct();
-            SetApplication();
+            //LoadProduct();
+            //SetApplication();
         }
         private StartViewModel startViewModel = new StartViewModel();
         private SelectCustomerViewModel selectCustomerViewModel = new SelectCustomerViewModel();
@@ -30,7 +30,7 @@ namespace InvisibleFenceContract.Viewmodels
         private ProductLookupViewModel productLookupViewModel = new ProductLookupViewModel();
         private BindableBase _CurrentViewModel;
 
-        public int CusID;
+        /*public int CusID;
         private string customerID;
         private string packageSelection;
         private double packagePrice;
@@ -87,7 +87,7 @@ namespace InvisibleFenceContract.Viewmodels
         private double tax = 0;
         private double total = 0;
         private double deposit = 0;
-        private double balance = 0;
+        private double balance = 0;*/
 
 
         public BindableBase CurrentViewModel
@@ -181,7 +181,7 @@ namespace InvisibleFenceContract.Viewmodels
 
         }
 
-        public void SetApplication()
+        /*public void SetApplication()
         {
 
             Application.Current.Properties["Cus_ID"] = CusID;
@@ -241,6 +241,6 @@ namespace InvisibleFenceContract.Viewmodels
             Application.Current.Properties["Total"] = total;
             Application.Current.Properties["Deposit"] = deposit;
             Application.Current.Properties["Balance"] = balance;
-        }
+        }*/
     }
 }

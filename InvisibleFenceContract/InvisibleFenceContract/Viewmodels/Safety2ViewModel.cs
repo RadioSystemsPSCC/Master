@@ -10,94 +10,149 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Windows;
 using System.Data;
+using InvisibleFenceContract.Services;
 
 namespace InvisibleFenceContract.Viewmodels
 {
-    class Safety2ViewModel : BindableBase
+    public class Safety2ViewModel : BindableBase
     {
+        private string gPSPrice;
+        private string boundaryPlusPrice;
+        private string digitalTechnologyPrice;
+        private string packageSelection;
+        private string packagePrice;
+        private string safetyTotal;
+
         public Safety2ViewModel()
         {
-            loadPrices();
+            loadOrder();
         }
 
-        public List<Product> safetyPrices
+
+        Order c_Order = new Order();
+
+        /*public Order c_Order
         {
             get;
             set;
-        }
+        }*/
 
-        public string GpsLabel
+
+
+        public string GPSPrice
         {
+
             get
             {
-                for (int i = 0; i < safetyPrices.Count; i++)
-                {
-                    if (safetyPrices[i].PartID == 62139)
-                    {
-                        return "$" + safetyPrices[i].PartPrice;
-                    }
-                }
-                return null;
+                //return "$" + this.gPSPrice;
+                return c_Order.GPSPrice.ToString();
             }
             set
             {
-                GpsLabel = value;
-                OnPropertyChanged("gpsLabel");
+                if (value != this.GPSPrice)
+
+                {
+                    this.gPSPrice = value;
+                    OnPropertyChanged("GPSPrice");
+                }
             }
         }
 
-        public string BoundaryPlus
+        public string BoundaryPlusPrice
         {
             get
             {
-                for (int i = 0; i < safetyPrices.Count; i++)
-                {
-                    if (safetyPrices[i].PartID == 62138)
-                    {
-                        return "$" + safetyPrices[i].PartPrice;
-                    }
-                }
-                return null;
+
+
+                //return "$" + this.boundaryPlusPrice;
+                return c_Order.BoundaryPlusPrice.ToString();
             }
+
+
             set
             {
-                BoundaryPlus = value;
-                OnPropertyChanged("boundaryPlus");
+                if (value != this.BoundaryPlusPrice)
+                {
+                    boundaryPlusPrice = value;
+                    OnPropertyChanged("boundaryPlus");
+                }
             }
         }
 
-        public string DigitalTechnology
+        public string DigitalTechnologyPrice
         {
             get
             {
-                for (int i = 0; i < safetyPrices.Count; i++)
-                {
-                    if (safetyPrices[i].PartID == 62100)
-                    {
-                        return "$" + safetyPrices[i].PartPrice;
-                    }
-                }
-                return null;
+                return c_Order.DigitalTechnologyPrice.ToString();
+
+                //return "$" + digitalTechnologyPrice;
             }
+
+
+
             set
             {
-                DigitalTechnology = value;
-                OnPropertyChanged("digitalTechnology");
+                if (value != this.PackageSelection)
+                {
+                    digitalTechnologyPrice = value;
+                    OnPropertyChanged("DigitalTechnologyPrice");
+                }
             }
         }
 
-        public void loadPrices()
+        public string PackageSelection
         {
-            try
+            get
             {
-                string file = File.ReadAllText(@"../../Resources/Products.JSON");
-                List<Product> prices = JsonConvert.DeserializeObject<List<Product>>(file);
-                safetyPrices = prices;
+                return this.packageSelection;
             }
-            catch (Exception e)
+            set
             {
-                Console.Write(e.ToString());
+                if (value != this.PackageSelection)
+                {
+                    this.packageSelection = value;
+                    OnPropertyChanged("PackageSelection");
+                }
             }
         }
+
+        public string PackagePrice
+        {
+            get
+            {
+                return "$" + this.packagePrice;
+            }
+            set
+            {
+                if (value != this.PackagePrice)
+                {
+                    this.packagePrice = value;
+                    OnPropertyChanged("PackagePrice");
+                }
+            }
+        }
+
+        public string SafetyTotal
+        {
+            get
+            {
+                return "$" + packagePrice;
+            }
+            set
+            {
+                if (value != this.SafetyTotal)
+                {
+                    this.safetyTotal = value;
+                    OnPropertyChanged("SafetyTotal");
+                }
+            }
+        }
+
+        public void loadOrder()
+        {
+            c_Order = Services.Utility.Order;
+        }
+
+
     }
 }

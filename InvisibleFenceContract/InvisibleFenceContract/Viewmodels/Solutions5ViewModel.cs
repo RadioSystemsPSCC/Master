@@ -12,10 +12,36 @@ namespace InvisibleFenceContract.Viewmodels
 {
     class Solutions5ViewModel : BindableBase
     {
+        private string safetyTotal;
+        private string protectionTotal;
+        private string freedomTotal;
+        private string safetyWiredAddPrice;
+        private string safetyWiredAddQuantity;
+        private string safetyWiredAddTotal;
+        private string gPSAddPrice;
+        private string gPSAddQuantity;
+        private string gPSAddTotal;
+        private string singleTrainPrice;
+        private string singleTrainQuantity;
+        private string singleTrainTotal;
+        private string couponCode;
+        private string discount;
+        private string solutionsPageTotal;
+        private string addAPetTotal;
+
+
+
         public Solutions5ViewModel()
         {
-            loadAppVariablesIntoOrder();
 
+            loadOrder();
+
+        }
+
+        public Order c_Order
+        {
+            get;
+            set;
         }
 
 
@@ -23,45 +49,52 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                return "$" + Application.Current.Properties["SafetyTotal"];
+                return this.safetyTotal;
             }
             set
             {
-                if (SafetyTotal != value)
+                if (value != this.SafetyTotal)
+
+
                 {
-                    Application.Current.Properties["SafetyTotal"] = value;
+                    this.safetyTotal = value;
                     OnPropertyChanged("SafetyTotal");
                 }
             }
         }
 
-
         public string ProtectionTotal
         {
             get
             {
-                return "$" + Application.Current.Properties["ProtectionTotal"];
+                return this.protectionTotal;
             }
             set
             {
-                if (ProtectionTotal != value)
+                if (value != this.ProtectionTotal)
+
+
                 {
-                    Application.Current.Properties["ProtectionTotal"] = value;
+                    this.protectionTotal = value;
                     OnPropertyChanged("ProtectionTotal");
                 }
             }
         }
+
+
         public string FreedomTotal
         {
             get
             {
-                return "$" + Application.Current.Properties["FreedomTotal"];
+                return this.freedomTotal;
             }
             set
             {
-                if (FreedomTotal != value)
+                if (value != this.FreedomTotal)
+
+
                 {
-                    Application.Current.Properties["FreedomTotal"] = value;
+                    this.freedomTotal = value;
                     OnPropertyChanged("FreedomTotal");
                 }
             }
@@ -71,30 +104,35 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                return "$" + Application.Current.Properties["SafetyWiredAddPrice"];
+                return "$" + this.safetyWiredAddPrice;
             }
             set
             {
-                if (SafetyWiredAddPrice != value)
+                if (value != this.SafetyWiredAddPrice)
+
+
                 {
-                    Application.Current.Properties["SafetyWiredAddPrice"] = value;
+                    this.safetyWiredAddPrice = value;
                     OnPropertyChanged("SafetyWiredAddPrice");
                 }
             }
         }
 
+
         public string SafetyWiredAddQuantity
         {
             get
             {
-                return Application.Current.Properties["SafetyWiredAddQuantity"].ToString();
+                return this.safetyWiredAddQuantity.ToString();
             }
             set
             {
-                if (SafetyWiredAddQuantity != value)
+                if (value != this.SafetyWiredAddQuantity)
+
+
                 {
-                    Application.Current.Properties["SafetyWiredAddQuantity"] = value;
-                    OnPropertyChanged("SafetyWiredAdd");
+                    this.safetyWiredAddQuantity = value;
+                    OnPropertyChanged("SafetyWiredAddQuantity");
                 }
             }
         }
@@ -103,71 +141,88 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                return "$" + (Convert.ToDouble(Application.Current.Properties["SafetyWiredAddPrice"]) * Convert.ToDouble(Application.Current.Properties["SafetyWiredAddQuantity"]));
+                return (Convert.ToDouble(this.safetyWiredAddPrice) * Convert.ToInt32(this.safetyWiredAddQuantity)).ToString();
             }
             set
             {
-                Application.Current.Properties["SafetyWiredAddTotal"] = value;
-                OnPropertyChanged("SafetyWiredAddTotal");
-            }
+                if (value != this.SafetyWiredAddTotal)
 
-        }
 
-        public double GPSAddPrice
-        {
-            get
-            {
-                return Convert.ToDouble(Application.Current.Properties["GPSAddPrice"]);
-            }
-            set
-            {
-                Application.Current.Properties["GPSAddPrice"] = value;
-                OnPropertyChanged("GPSAddPrice");
-            }
-        }
-
-        public double GPSAddTotal
-        {
-            get
-            {
-                return 3.0; /*+ (this.GPSAddQuantity * this.GPSAddPrice)*/
-            }
-            set
-            {
-                if (this.GPSAddTotal != value)
                 {
-                    this.GPSAddTotal = value;
+                    this.safetyWiredAddTotal = value;
+                    OnPropertyChanged("SafetyWiredAddTotal");
+                }
+            }
+        }
+
+
+        public string GPSAddPrice
+        {
+            get
+            {
+                return "$" + this.gPSAddPrice;
+            }
+            set
+            {
+                if (value != this.GPSAddPrice)
+
+
+                {
+                    this.gPSAddPrice = value;
+                    OnPropertyChanged("GPSAddPrice");
+                }
+            }
+        }
+
+        public string GPSAddQuantity
+        {
+            get
+            {
+                return this.gPSAddQuantity.ToString();
+            }
+            set
+            {
+                if (value != this.GPSAddQuantity)
+
+
+                {
+                    this.gPSAddQuantity = value;
+                    OnPropertyChanged("GPSAddQuantity");
+                }
+            }
+        }
+
+        public string GPSAddTotal
+        {
+            get
+            {
+                return (Convert.ToDouble(this.gPSAddPrice) * Convert.ToInt32(this.gPSAddQuantity)).ToString();
+            }
+            set
+            {
+                if (value != this.GPSAddTotal)
+
+
+                {
+                    this.gPSAddTotal = value;
                     OnPropertyChanged("GPSAddTotal");
                 }
             }
         }
 
-        public double GPSAddQuantity
-        {
-            get
-            {
-                return Convert.ToDouble(Application.Current.Properties["GPSAddQuantity"]);
-            }
-            set
-            {
-                Application.Current.Properties["GPSAddQuantity"] = value;
-
-                OnPropertyChanged("GPSAddQuantity");
-            }
-        }
-
-        //THISPART NUMBER IS WRONG!!!!!!!!!GET THE CORRECT PART NUMBER
-        //Correct price wrong part!!!!
         public string SingleTrainPrice
         {
             get
             {
-                return "$" + Application.Current.Properties["SingleTrainPrice"];
+                return "$" + this.singleTrainPrice;
             }
             set
             {
-                Application.Current.Properties["SingleTrainPrice"] = value;
-                OnPropertyChanged("SingleTrainPrice");
+                if (value != this.SingleTrainPrice)
+                {
+                    this.singleTrainPrice = value;
+                    OnPropertyChanged("SingleTrainPrice");
+                }
             }
         }
 
@@ -175,24 +230,32 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                return Application.Current.Properties["SingleTrainQuantity"].ToString();
+                return this.singleTrainQuantity;
             }
             set
             {
-                Application.Current.Properties["SingleTrainQuantity"] = value;
-                OnPropertyChanged("SingleTrainQuantity");
+                if (value != this.SingleTrainQuantity)
+                {
+                    this.singleTrainQuantity = value;
+                    OnPropertyChanged("SingleTrainQuantity");
+                }
             }
         }
+
         public string SingleTrainTotal
         {
             get
             {
-                return "$" + (Convert.ToDouble(Application.Current.Properties["SingleTrainPrice"]) * Convert.ToDouble(Application.Current.Properties["SingleTrainQuantity"]));
+                return (Convert.ToDouble(this.singleTrainPrice) * Convert.ToInt32(this.singleTrainQuantity)).ToString();
             }
             set
             {
-                Application.Current.Properties["SingleTrainTotal"] = value;
-                OnPropertyChanged("SingleTrainTotal");
+                if (value != this.SingleTrainTotal)
+                {
+                    this.singleTrainTotal = value;
+                    OnPropertyChanged("SingleTrainTotal");
+
+                }
             }
         }
 
@@ -200,20 +263,16 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                if (Application.Current.Properties["CouponCode"] == null)
-                {
-                    return "none";
-                }
-                else
-                {
-                    return Application.Current.Properties["CouponCode"].ToString();
-                }
-
+                return this.couponCode;
             }
             set
             {
-                Application.Current.Properties["CouponCode"] = value;
-                OnPropertyChanged("CouponCode");
+                if (value != this.CouponCode)
+
+                {
+                    this.couponCode = value;
+                    OnPropertyChanged("CouponCode");
+                }
             }
         }
 
@@ -221,39 +280,42 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                return "$" + (Convert.ToDouble(Application.Current.Properties["Discount"]));
+                return "$" + this.discount;
             }
             set
             {
-                Application.Current.Properties["Discount"] = value;
-                OnPropertyChanged("Discount");
+                if (value != this.discount)
+
+                {
+                    this.discount = value;
+                    OnPropertyChanged("Discount");
+                }
             }
         }
-
-        public string SolutionsPageTotal
+        //Does not include discount in total
+        public string AddAPetTotal
         {
             get
             {
-                return "$" + (Convert.ToDouble(Application.Current.Properties["SafetyWiredAddTotal"]) + Convert.ToDouble(Application.Current.Properties["GPSAddTotal"]) + Convert.ToDouble(Application.Current.Properties["SingleTrainTotal"]));
+                return (Convert.ToDouble(safetyWiredAddTotal) + Convert.ToDouble(gPSAddTotal)).ToString();
             }
             set
             {
-                Application.Current.Properties["SolutionsPageTotal"] = value;
-                OnPropertyChanged("SolutionsPageTotal");
+                if (value != this.AddAPetTotal)
+
+                {
+                    this.addAPetTotal = value;
+                    OnPropertyChanged("AddAPetTotal");
+                }
             }
         }
 
-        public void loadAppVariablesIntoOrder()
-        {
-            Order customerOrder = new Order();
-            customerOrder.SafetyTotal = Convert.ToDouble(Application.Current.Properties["SafetyTotal"]);
-            customerOrder.ProtectionTotal = Convert.ToDouble(Application.Current.Properties["ProtectionTotal"]);
-            customerOrder.FreedomTotal = Convert.ToDouble(Application.Current.Properties["FreedomTotal"]);
-            customerOrder.SafetyWiredAddPrice = Convert.ToDouble(Application.Current.Properties["SafetyWiredAddPrice"]);
-            customerOrder.GPSAddPrice = Convert.ToDouble(Application.Current.Properties["GPSAddPrice"]);
-            customerOrder.GPSAddQuantity = Convert.ToInt32(Application.Current.Properties["GPSAddQuantity"]);
-            customerOrder.GPSAddTotal = Convert.ToInt32(Application.Current.Properties["GPSAddTotal"]);
 
+
+
+        public void loadOrder()
+        {
+            c_Order = Services.Utility.Order;
         }
 
     }

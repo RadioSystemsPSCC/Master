@@ -15,67 +15,150 @@ namespace InvisibleFenceContract.Viewmodels
 {
     class Freedom4ViewModel : BindableBase
     {
+
+        private string doormanPetDoorPrice;
+        private string doormanPetDoorQuantity;
+        private string doormanPetDoorTotal;
+        private string shieldsCollarPrice;
+        private string shieldsCollarQuantity2;
+        private string shieldsCollarTotal;
+        private string freedomTotal;
+
         public Freedom4ViewModel()
         {
-            loadPrices();
+            loadOrder();
         }
 
-        public List<Product> c_Prices
+        public Order c_Order
         {
             get;
             set;
         }
-        
+
+
         public string DoormanPetDoorPrice
         {
             get
             {
-                for (int i = 0; i < c_Prices.Count; i++)
-                {
-                    if (c_Prices[i].PartID == 29191)
-                    {
-                        return "$" + c_Prices[i].PartPrice;
-                    }
-                }
-                return null;
+                return "$" + this.doormanPetDoorPrice;
             }
             set
             {
-                DoormanPetDoorPrice = value;
+                if (value != this.DoormanPetDoorPrice)
+
+                {
+                    this.doormanPetDoorPrice = value;
+                    OnPropertyChanged("DoormanPetDoorPrice");
+                }
             }
         }
+
+
+        public string DoormanPetDoorQuantity
+        {
+            get
+            {
+                return this.doormanPetDoorQuantity.ToString();
+            }
+            set
+            {
+                if (value != this.DoormanPetDoorQuantity)
+
+                {
+                    this.doormanPetDoorQuantity = value;
+                    OnPropertyChanged("DoormanPetDoorQuantity");
+                }
+            }
+        }
+
+        public string DoormanPetDoorTotal
+        {
+            get
+            {
+                return (Convert.ToDouble(this.doormanPetDoorPrice) * Convert.ToInt32(this.doormanPetDoorQuantity)).ToString();
+            }
+            set
+            {
+                if (value != this.DoormanPetDoorTotal)
+
+                {
+                    this.doormanPetDoorTotal = value;
+                    OnPropertyChanged("DoormanPetDoorTotal");
+                }
+            }
+        }
+
 
         public string ShieldsCollarPrice
         {
             get
             {
-                for (int i = 0; i < c_Prices.Count; i++)
-                {
-                    if (c_Prices[i].PartID == 57594)
-                    {
-                        return "$" + c_Prices[i].PartPrice;
-                    }
-                }
-                return null;
+                return "$" + this.shieldsCollarPrice;
             }
             set
             {
-                ShieldsCollarPrice = value;
+                if (value != this.ShieldsCollarPrice)
+
+                {
+                    this.shieldsCollarPrice = value;
+                    OnPropertyChanged("ShieldsCollarPrice");
+                }
             }
         }
 
-        public void loadPrices()
+        public string ShieldsCollarQuantity2
         {
-            try
+            get
             {
-                string file = File.ReadAllText(@"../../Resources/Products.JSON");
-                List<Product> prices = JsonConvert.DeserializeObject<List<Product>>(file);
-                c_Prices = prices;
+                return this.shieldsCollarQuantity2;
             }
-            catch (Exception e)
+            set
             {
-                Console.Write(e.ToString());
+                if (value != this.ShieldsCollarQuantity2)
+
+                {
+                    this.shieldsCollarQuantity2 = value;
+                    OnPropertyChanged("ShieldsCollarQuantity2");
+                }
             }
         }
+
+        public string ShieldsCollarTotal
+        {
+            get
+            {
+                return (Convert.ToDouble(this.shieldsCollarTotal) + (Convert.ToDouble(this.shieldsCollarPrice) * Convert.ToInt32(this.shieldsCollarQuantity2))).ToString();
+            }
+            set
+            {
+                if (value != this.ShieldsCollarTotal)
+                {
+                    this.shieldsCollarTotal = value;
+                    OnPropertyChanged("ShieldsCollarTotal");
+                }
+            }
+        }
+
+        public string FreedomTotal
+        {
+            get
+            {
+                return (Convert.ToDouble(this.doormanPetDoorTotal) + (Convert.ToDouble(this.shieldsCollarTotal))).ToString();
+            }
+            set
+            {
+                if (value != this.FreedomTotal)
+                {
+                    this.freedomTotal = value;
+                    OnPropertyChanged("FreedomTotal");
+                }
+            }
+        }
+
+        public void loadOrder()
+        {
+            c_Order = Services.Utility.Order;
+        }
+
     }
 }

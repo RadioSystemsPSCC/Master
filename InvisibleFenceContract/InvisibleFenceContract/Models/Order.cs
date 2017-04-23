@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace InvisibleFenceContract.Models
 {
-    class Order : BindableBase
+    public class Order : BindableBase
     {
 
         private string customerID;
         private string packageSelection;
         private double packagePrice;
         private double safetyTotal;
+        private double boundaryPlusPrice;
         private int outdoorShieldQuantity;
         private double outdoorShieldPrice1;
         private double outdoorShieldPrice2;
@@ -32,6 +33,7 @@ namespace InvisibleFenceContract.Models
         private double microLitePrice;
         private double microLiteTotal;
         private double protectionTotal;
+        private double digitalTechnologyPrice;
         private int doormanPetDoorQuantity;
         private double doormanPetDoorPrice;
         private double doormanPetDoorTotal;
@@ -42,6 +44,7 @@ namespace InvisibleFenceContract.Models
         private double safetyWiredAddPrice;
         private double safetyWiredAddTotal;
         private int gPSAddQuantity;
+        private double gPSPrice;
         private double gPSAddPrice;
         private double gPSAddTotal;
         private int singleTrainQuantity;
@@ -79,6 +82,49 @@ namespace InvisibleFenceContract.Models
             {
                 customerID = value;
                 OnPropertyChanged("CustomerID");
+            }
+        }
+
+        public double DigitalTechnologyPrice
+        {
+            get
+            {
+                return digitalTechnologyPrice;
+            }
+            set
+            {
+                digitalTechnologyPrice = value;
+                OnPropertyChanged("CustomerID");
+            }
+        }
+
+        
+
+        public double BoundaryPlusPrice
+        {
+            get
+            {
+                return boundaryPlusPrice;
+            }
+            set
+            {
+                boundaryPlusPrice = value;
+                OnPropertyChanged("BoundaryPlusPrice");
+            }
+        }
+
+        
+
+        public double GPSPrice
+        {
+            get
+            {
+                return gPSPrice;
+            }
+            set
+            {
+                gPSPrice = value;
+                OnPropertyChanged("GPSPrice");
             }
         }
 
