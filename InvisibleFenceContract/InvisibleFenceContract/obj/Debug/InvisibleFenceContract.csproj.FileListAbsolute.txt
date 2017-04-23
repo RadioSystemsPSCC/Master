@@ -153,3 +153,4 @@ C:\Users\docon\Documents\Capstone\GITHUB_NEW_CLONE_04_22\Master\InvisibleFenceCo
 C:\Users\docon\Documents\Capstone\GITHUB_NEW_CLONE_04_22\Master\InvisibleFenceContract\InvisibleFenceContract\obj\Debug\InvisibleFenceContract.g.resources
 C:\Users\docon\Documents\Capstone\GITHUB_NEW_CLONE_04_22\Master\InvisibleFenceContract\InvisibleFenceContract\obj\Debug\InvisibleFenceContract.Properties.Resources.resources
 C:\Users\docon\Documents\Capstone\GITHUB_NEW_CLONE_04_22\Master\InvisibleFenceContract\InvisibleFenceContract\obj\Debug\InvisibleFenceContract.csproj.GenerateResource.Cache
+C:\Users\docon\Documents\Capstone\GITHUB_NEW_CLONE_04_22\Master\InvisibleFenceContract\InvisibleFenceContract\obj\Debug\InvisibleFenceContract.csprojResolveAssemblyReference.cache
