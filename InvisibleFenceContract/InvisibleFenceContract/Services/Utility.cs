@@ -100,9 +100,9 @@ namespace InvisibleFenceContract.Services
             }
 
             Order order1 = new Order();
-            order1 = (Order)Application.Current.Properties["myOrder"];
+            //order1 = (Order)Application.Current.Properties["myOrder"];
 
-            Application.Current.Properties["myOrder"] = order1;
+            //Application.Current.Properties["myOrder"] = order1;
 
 
             for (int i = 0; i < AllPrices.Count; i++)

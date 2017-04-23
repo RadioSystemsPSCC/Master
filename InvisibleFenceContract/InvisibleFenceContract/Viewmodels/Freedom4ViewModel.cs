@@ -58,7 +58,7 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                return this.doormanPetDoorQuantity.ToString();
+                return  this.doormanPetDoorQuantity.ToString();
             }
             set
             {
@@ -75,7 +75,7 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                return (Convert.ToDouble(this.doormanPetDoorPrice) * Convert.ToInt32(this.doormanPetDoorQuantity)).ToString();
+                return "$" + (Convert.ToDouble(this.doormanPetDoorPrice) * Convert.ToInt32(this.doormanPetDoorQuantity)).ToString();
             }
             set
             {
@@ -127,7 +127,7 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                return (Convert.ToDouble(this.shieldsCollarTotal) + (Convert.ToDouble(this.shieldsCollarPrice) * Convert.ToInt32(this.shieldsCollarQuantity2))).ToString();
+                return "$" + (Convert.ToDouble(this.shieldsCollarTotal) + (Convert.ToDouble(this.shieldsCollarPrice) * Convert.ToInt32(this.shieldsCollarQuantity2))).ToString();
             }
             set
             {
@@ -143,7 +143,7 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                return (Convert.ToDouble(this.doormanPetDoorTotal) + (Convert.ToDouble(this.shieldsCollarTotal))).ToString();
+                return "$" + (Convert.ToDouble(this.doormanPetDoorTotal) + (Convert.ToDouble(this.shieldsCollarTotal))).ToString();
             }
             set
             {

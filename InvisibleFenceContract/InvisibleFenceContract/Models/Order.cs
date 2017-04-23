@@ -319,11 +319,12 @@ namespace InvisibleFenceContract.Models
         {
             get
             {
-                return MicroShieldTotal;
+                return microShieldTotal;
             }
             set
             {
-                MicroShieldTotal = value;
+                if(value != MicroShieldTotal)
+                microShieldTotal = value;
                 OnPropertyChanged("MicroShieldTotal");
             }
         }

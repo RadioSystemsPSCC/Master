@@ -5,17 +5,19 @@ using System.Windows;
 using System.IO;
 using Newtonsoft.Json;
 using InvisibleFenceContract.Models;
+using InvisibleFenceContract.Services;
 
 namespace InvisibleFenceContract.Viewmodels
 {
     class MainWindowViewModel : BindableBase
     {
-
+        
         public MainWindowViewModel()
         {
+            
             NavCommand = new MyICommand<string>(OnNav);
-            //LoadProduct();
-            //SetApplication();
+            Utility.InitialLoadOrderData();
+            
         }
         private StartViewModel startViewModel = new StartViewModel();
         private SelectCustomerViewModel selectCustomerViewModel = new SelectCustomerViewModel();

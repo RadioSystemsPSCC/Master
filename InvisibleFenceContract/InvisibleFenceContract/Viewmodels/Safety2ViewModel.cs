@@ -44,8 +44,8 @@ namespace InvisibleFenceContract.Viewmodels
 
             get
             {
-                //return "$" + this.gPSPrice;
-                return c_Order.GPSPrice.ToString();
+                return "$" + this.gPSPrice;
+               
             }
             set
             {
@@ -64,8 +64,8 @@ namespace InvisibleFenceContract.Viewmodels
             {
 
 
-                //return "$" + this.boundaryPlusPrice;
-                return c_Order.BoundaryPlusPrice.ToString();
+                return "$" + this.boundaryPlusPrice;
+               
             }
 
 
@@ -83,9 +83,8 @@ namespace InvisibleFenceContract.Viewmodels
         {
             get
             {
-                return c_Order.DigitalTechnologyPrice.ToString();
-
-                //return "$" + digitalTechnologyPrice;
+               
+                return "$" + digitalTechnologyPrice;
             }
 
 
